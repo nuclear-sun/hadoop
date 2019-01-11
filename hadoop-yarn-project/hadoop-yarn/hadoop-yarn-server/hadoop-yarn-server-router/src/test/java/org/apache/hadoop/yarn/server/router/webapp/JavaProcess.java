@@ -48,7 +48,7 @@ public class JavaProcess {
     String className = clazz.getCanonicalName();
     ProcessBuilder builder =
         new ProcessBuilder(javaBin, "-cp", classpath, className);
-    builder.inheritIO();
+    //builder.inheritIO();
     process = builder.start();
   }
 
