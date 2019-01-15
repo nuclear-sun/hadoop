@@ -38,6 +38,7 @@ import org.apache.hadoop.hdfs.server.namenode.NNStorage.NameNodeDirType;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.security.UserGroupInformation;
 import org.apache.hadoop.security.token.Token;
+import org.apache.hadoop.util.ExitUtil;
 import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.invocation.InvocationOnMock;
@@ -58,6 +59,7 @@ public class TestSecurityTokenEditLog {
   static final int opsPerTrans = 3;
 
   static {
+    ExitUtil.disableSystemExit();
     // No need to fsync for the purposes of tests. This makes
     // the tests run much faster.
     EditLogFileOutputStream.setShouldSkipFsyncForTesting(true);

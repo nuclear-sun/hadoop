@@ -33,6 +33,7 @@ import org.apache.commons.logging.LogFactory;
 import org.apache.hadoop.classification.InterfaceAudience;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.net.NetUtils;
+import org.apache.hadoop.util.ExitUtil;
 import org.apache.hadoop.util.StringUtils;
 
 /**
@@ -194,7 +195,7 @@ public class OfflineImageViewerPB {
           System.err.println("OfflineImageReconstructor failed: "
               + e.getMessage());
           e.printStackTrace(System.err);
-          System.exit(1);
+          ExitUtil.terminate(1);
         }
         break;
       case "WEB":

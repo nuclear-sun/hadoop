@@ -41,7 +41,9 @@ import org.apache.hadoop.hdfs.util.Holder;
 import org.apache.hadoop.hdfs.web.URLConnectionFactory;
 import org.apache.hadoop.test.GenericTestUtils;
 import org.apache.hadoop.test.PathUtils;
+import org.apache.hadoop.util.ExitUtil;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
@@ -53,6 +55,10 @@ public class TestEditLogFileInputStream {
   private final static File TEST_DIR = PathUtils
       .getTestDir(TestEditLogFileInputStream.class);
 
+  @Before
+  public void setup() {
+    ExitUtil.disableSystemExit();
+  }
   @Test
   public void testReadURL() throws Exception {
     HttpURLConnection conn = mock(HttpURLConnection.class);

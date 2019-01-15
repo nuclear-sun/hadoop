@@ -24,6 +24,8 @@ import org.apache.hadoop.classification.InterfaceStability;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.apache.hadoop.util.ExitUtil;
+
 
 /** Context data for an ongoing NameNode metadata recovery process. */
 @InterfaceAudience.Private
@@ -117,7 +119,7 @@ public final class MetaRecoveryContext  {
   /** Log a message and quit */
   public void quit() {
     LOG.error("Exiting on user request.");
-    System.exit(0);
+    ExitUtil.terminate(0);
   }
 
   public int getForce() {

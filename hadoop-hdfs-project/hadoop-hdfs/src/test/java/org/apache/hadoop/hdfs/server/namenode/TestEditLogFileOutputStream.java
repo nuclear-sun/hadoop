@@ -27,6 +27,7 @@ import java.io.IOException;
 import org.apache.hadoop.test.PathUtils;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.io.IOUtils;
+import org.apache.hadoop.util.ExitUtil;
 import org.apache.hadoop.util.StringUtils;
 import org.junit.After;
 import org.junit.Before;
@@ -47,6 +48,7 @@ public class TestEditLogFileOutputStream {
 
   @BeforeClass
   public static void disableFsync() {
+    ExitUtil.disableSystemExit();
     // No need to fsync for the purposes of tests. This makes
     // the tests run much faster.
     EditLogFileOutputStream.setShouldSkipFsyncForTesting(true);

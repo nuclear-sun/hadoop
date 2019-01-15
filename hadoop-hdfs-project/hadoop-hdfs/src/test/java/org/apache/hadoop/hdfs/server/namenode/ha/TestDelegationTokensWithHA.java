@@ -43,6 +43,7 @@ import org.apache.hadoop.security.UserGroupInformation;
 import org.apache.hadoop.security.token.Token;
 import org.apache.hadoop.security.token.TokenIdentifier;
 import org.apache.hadoop.test.GenericTestUtils;
+import org.apache.hadoop.util.ExitUtil;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -78,6 +79,7 @@ public class TestDelegationTokensWithHA {
   
   @Before
   public void setupCluster() throws Exception {
+    ExitUtil.disableSystemExit();
     SecurityUtilTestHelper.setTokenServiceUseIp(true);
     
     conf.setBoolean(

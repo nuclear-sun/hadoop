@@ -32,12 +32,16 @@ import org.apache.hadoop.hdfs.MiniDFSCluster;
 import org.apache.hadoop.hdfs.MiniDFSNNTopology;
 import org.apache.hadoop.hdfs.server.namenode.TestFileTruncate;
 import org.apache.hadoop.hdfs.tools.DFSck;
+import org.apache.hadoop.util.ExitUtil;
 import org.apache.hadoop.util.ToolRunner;
 import org.junit.Test;
 
 public class TestHAAppend {
   static final int COUNT = 5;
 
+  static {
+    ExitUtil.disableSystemExit();
+  }
   static FSDataOutputStream createAndHflush(FileSystem fs, Path file,
       byte[] data, int length) throws IOException{
     FSDataOutputStream out = fs.create(file, false, 4096, (short)3, 1024);

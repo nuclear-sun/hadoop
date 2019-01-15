@@ -51,6 +51,7 @@ import org.apache.hadoop.hdfs.server.namenode.NNStorage.NameNodeDirType;
 import org.apache.hadoop.io.IOUtils;
 import org.apache.hadoop.test.GenericTestUtils;
 import org.apache.hadoop.test.PathUtils;
+import org.apache.hadoop.util.ExitUtil;
 import org.apache.hadoop.util.StringUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -90,6 +91,7 @@ public class TestNameNodeRecovery {
   private static final File TEST_DIR = PathUtils.getTestDir(TestNameNodeRecovery.class);
 
   static {
+    ExitUtil.disableSystemExit();
     recoverStartOpt.setForce(MetaRecoveryContext.FORCE_ALL);
     EditLogFileOutputStream.setShouldSkipFsyncForTesting(true);
   }

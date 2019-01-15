@@ -84,6 +84,7 @@ import org.apache.hadoop.io.retry.RetryInvocationHandler;
 import org.apache.hadoop.io.retry.RetryPolicies;
 import org.apache.hadoop.io.retry.RetryPolicy;
 import org.apache.hadoop.ipc.RetryCache.CacheEntry;
+import org.apache.hadoop.util.ExitUtil;
 import org.apache.hadoop.util.LightWeightCache;
 import org.junit.After;
 import org.junit.Before;
@@ -129,6 +130,7 @@ public class TestRetryCacheWithHA {
   
   @Before
   public void setup() throws Exception {
+    ExitUtil.disableSystemExit();
     conf.setLong(DFSConfigKeys.DFS_BLOCK_SIZE_KEY, BlockSize);
     conf.setInt(DFSConfigKeys.DFS_NAMENODE_LIST_CACHE_DIRECTIVES_NUM_RESPONSES, ResponseSize);
     conf.setInt(DFSConfigKeys.DFS_NAMENODE_LIST_CACHE_POOLS_NUM_RESPONSES, ResponseSize);
