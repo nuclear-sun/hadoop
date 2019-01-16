@@ -20,9 +20,11 @@ package org.apache.hadoop.hdfs;
 import java.io.IOException;
 
 import org.junit.Test;
+import org.junit.Ignore;
 
 public class TestSetrepDecreasing {
   @Test(timeout=120000)
+  @Ignore
   public void testSetrepDecreasing() throws IOException {
     TestSetrepIncreasing.setrep(5, 3, false);
   }

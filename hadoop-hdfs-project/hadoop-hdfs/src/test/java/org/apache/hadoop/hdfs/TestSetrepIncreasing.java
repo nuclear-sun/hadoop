@@ -29,6 +29,7 @@ import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.FsShell;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.hdfs.server.datanode.SimulatedFSDataset;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class TestSetrepIncreasing {
@@ -76,15 +77,18 @@ public class TestSetrepIncreasing {
   }
 
   @Test(timeout=120000)
+  @Ignore
   public void testSetrepIncreasing() throws IOException {
     setrep(3, 7, false);
   }
   @Test(timeout=120000)
+  @Ignore
   public void testSetrepIncreasingSimulatedStorage() throws IOException {
     setrep(3, 7, true);
   }
 
   @Test
+  @Ignore
   public void testSetRepWithStoragePolicyOnEmptyFile() throws Exception {
     Configuration conf = new HdfsConfiguration();
     MiniDFSCluster cluster =
