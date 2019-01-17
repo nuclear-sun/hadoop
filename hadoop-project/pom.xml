@@ -112,7 +112,7 @@
     <enforced.maven.version>[3.3.0,)</enforced.maven.version>
 
     <!-- Plugin versions and config -->
-    <maven-surefire-plugin.argLine>-Xmx6g -XX:MaxPermSize=2048m -XX:+HeapDumpOnOutOfMemoryError</maven-surefire-plugin.argLine>
+    <maven-surefire-plugin.argLine>-Xmx6g -XX:MaxPermSize=2048m -XX:+HeapDumpOnOutOfMemoryError -XX:+UseCountedLoopSafepoints</maven-surefire-plugin.argLine>
     <maven-surefire-plugin.version>2.21.0</maven-surefire-plugin.version>
     <maven-surefire-report-plugin.version>${maven-surefire-plugin.version}</maven-surefire-report-plugin.version>
     <maven-failsafe-plugin.version>${maven-surefire-plugin.version}</maven-failsafe-plugin.version>
