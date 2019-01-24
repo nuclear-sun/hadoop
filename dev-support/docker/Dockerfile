@@ -19,7 +19,7 @@
 # See BUILDING.txt.
 
 
-FROM ubuntu:trusty
+FROM ubuntu:xenial
 
 WORKDIR /root
 
@@ -52,7 +52,6 @@ RUN apt-get -q update && apt-get -q install --no-install-recommends -y \
     libsnappy-dev \
     libssl-dev \
     libtool \
-    openjdk-7-jdk \
     pinentry-curses \
     pkg-config \
     protobuf-compiler \
@@ -84,12 +83,16 @@ RUN echo "dot_style = mega" > "/root/.wgetrc"
 RUN echo "quiet = on" >> "/root/.wgetrc"
 
 RUN apt-get -q install --no-install-recommends -y software-properties-common
-RUN add-apt-repository -y ppa:webupd8team/java
+# RUN add-apt-repository -y ppa:webupd8team/java
 RUN apt-get -q update
 
 # Install OpenJDK 7
 #RUN apt-get -q install --no-install-recommends -y openjdk-7-jdk
-RUN apt-get -q install -y openjdk-8-jdk
+#RUN apt-get -q install -y openjdk-8-jdk
+RUN apt-get -q update \
+    && apt-get -q install -y --no-install-recommends openjdk-8-jdk libbcprov-java \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 ######
 # Install spotbugs (successor of findbugs)
