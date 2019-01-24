@@ -88,7 +88,8 @@ RUN add-apt-repository -y ppa:webupd8team/java
 RUN apt-get -q update
 
 # Install OpenJDK 7
-RUN apt-get -q install --no-install-recommends -y openjdk-7-jdk
+#RUN apt-get -q install --no-install-recommends -y openjdk-7-jdk
+RUN apt-get -q install -y openjdk-8-jdk
 
 ######
 # Install spotbugs (successor of findbugs)
